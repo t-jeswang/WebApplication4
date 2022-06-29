@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+   <script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/5.1.0/adyen.js"
+     integrity="sha384-MSSWlGReMOvq1c7XJ2+w4ndYk2dGvQIwY5KZZ8FiSsFd8SyySH52G54o0/wxuVT+"
+     crossorigin="anonymous"></script>
+
+<link rel="stylesheet"
+     href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/5.1.0/adyen.css"
+     integrity="sha384-XN0c1CgugymoLluXz9O4h5yZilh197E8065oXNe5SgK9TSm6JL2eBdEM7IETwboE"
+     crossorigin="anonymous">
+
+    <title>@ViewData["Title"] - Checkout Demo</title>
+</head>
+<body>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+@RenderSection("Scripts", required: false)
+</body>
+</html>
