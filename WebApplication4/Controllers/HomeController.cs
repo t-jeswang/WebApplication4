@@ -46,6 +46,14 @@ namespace WebApplication4.Controllers
             ViewBag.ClientKey = _client_key;
             return View();
         }
+        public IActionResult Subscription(string id)
+        {
+            ViewBag.ClientKey = _client_key;
+            ViewBag.PaymentMethod = id;
+            ViewBag.amount = 10;
+            ViewBag.currency = "USD";
+            return View();
+        }
 
         [HttpGet("Home/Result/{status}")]
         public IActionResult Result(string status, [FromQuery(Name = "reason")] string refusalReason)

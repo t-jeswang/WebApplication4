@@ -27,7 +27,10 @@
         <div class="cart-footer">
             <span class="cart-footer-label">Total:</span><span class="cart-footer-amount">10.00</span>
             <a asp-area="" asp-controller="Home" asp-action="Checkout" asp-route-id="@ViewBag.PaymentMethod">
-                <p class="button">Continue to checkout</p>
+                <p class="button">Continue to One-time checkout</p>
+            </a>
+            <a asp-area="" asp-controller="Home" asp-action="Subscription" asp-route-id="@ViewBag.PaymentMethod">
+                <p class="button">Subscribe these products</p>
             </a>
         </div>
     </section>

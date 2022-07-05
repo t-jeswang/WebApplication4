@@ -39,12 +39,66 @@ namespace WebApplication4.Controllers
             sessionsRequest.reference = orderRef.ToString(); 
 
             sessionsRequest.returnUrl = $"https://dotnet-googlepay.azurewebsites.net/Home/Redirect?orderRef={orderRef}";
+           /*
+            sessionsRequest.storePaymentMethod = true;
+            sessionsRequest.shopperInteraction = CreateCheckoutSessionRequest.ShopperInteractionEnum.Ecommerce;
+            sessionsRequest.recurringProcessingModel = CreateCheckoutSessionRequest.RecurringProcessingModelEnum.Subscription;
+           */
             var res = _checkout.Sessions(sessionsRequest);
             _logger.LogInformation($"Response for Payment API::\n{res}\n");
             return res.ToJson();
           
            
         }
+        /*
+        [HttpPost("api/subscription")]
+        public ActionResult<string> Subscription_create()
+        {
 
+            var sessionsRequest = new PaymentRequest();
+            sessionsRequest.MerchantAccount = _merchant_account;
+           // sessionsRequest.channel = (CreateCheckoutSessionRequest.ChannelEnum?)PaymentRequest.ChannelEnum.Web;
+
+            var amount = new Amount("USD", 0 * 100);
+            sessionsRequest.Amount = amount;
+           // sessionsRequest.countryCode = "US";
+            var orderRef = System.Guid.NewGuid();
+            sessionsRequest.Reference = orderRef.ToString();
+
+            sessionsRequest.ReturnUrl = $"https://dotnet-googlepay.azurewebsites.net/Home/Redirect?orderRef={orderRef}";
+            sessionsRequest.StorePaymentMethod = true;
+            sessionsRequest.ShopperInteraction = PaymentRequest.ShopperInteractionEnum.Ecommerce;
+            sessionsRequest.RecurringProcessingModel = PaymentRequest.RecurringProcessingModelEnum.Subscription;
+
+            var res = _checkout.Payments(sessionsRequest);
+            _logger.LogInformation($"Response for Payment API::\n{res}\n");
+            return res.ToJson();
+
+
+        }
+        [HttpPost("api/sub/payment")]
+        public ActionResult<string> Sub_payment()
+        {
+            var sessionsRequest = new PaymentRequest();
+            sessionsRequest.merchantAccount = _merchant_account;
+            sessionsRequest.channel = (CreateCheckoutSessionRequest.ChannelEnum?)PaymentRequest.ChannelEnum.Web;
+
+            var amount = new Amount("USD", 9 * 100);
+            sessionsRequest.amount = amount;
+            sessionsRequest.countryCode = "US";
+            var orderRef = System.Guid.NewGuid();
+            sessionsRequest.reference = orderRef.ToString();
+
+            sessionsRequest.returnUrl = $"https://dotnet-googlepay.azurewebsites.net/Home/Redirect?orderRef={orderRef}";
+            sessionsRequest.storePaymentMethod = true;
+            sessionsRequest.shopperInteraction = CreateCheckoutSessionRequest.ShopperInteractionEnum.Ecommerce;
+            sessionsRequest.recurringProcessingModel = CreateCheckoutSessionRequest.RecurringProcessingModelEnum.Subscription;
+
+            var res = _checkout.Sessions(sessionsRequest);
+            _logger.LogInformation($"Response for Payment API::\n{res}\n");
+            return res.ToJson();
+
+
+        }*/
     }
 }
