@@ -44,11 +44,11 @@ namespace adyen_dotnet_online_payments.Controllers
                     }
                     else
                     {
-                        _logger.LogError($"Received webhook with event::\n" +
+                        _logger.LogError($"Error while validating HMAC Key" + $"Received webhook with event::\n" +
                    $"Merchant Reference ::{container.NotificationItem.MerchantReference} \n" +
                    $"PSP Reference ::{container.NotificationItem.PspReference} \n" +
                    $"status::{container.NotificationItem.EventCode} \n"+
-               $"HMAC key sent:{container.NotificationItem.AdditionalData["hmacSignature"]}"+$"Error while validating HMAC Key");
+               $"HMAC key sent:{container.NotificationItem.AdditionalData["hmacSignature"]}");
 
                     }
                 }
