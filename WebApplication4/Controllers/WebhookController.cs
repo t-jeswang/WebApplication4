@@ -33,9 +33,10 @@ namespace adyen_dotnet_online_payments.Controllers
                 // We recommend to activate HMAC validation in the webhooks for security reasons
                 try
                 {
+                    /*
                 if (hmacValidator.IsValidHmac(container.NotificationItem, _hmac_key))
                 {
-                _logger.LogError($"Received webhook with event::\n" +
+                _logger.LogInformation($"Received webhook with event::\n" +
                     $"Merchant Reference ::{container.NotificationItem.MerchantReference} \n" +
                     $"PSP Reference ::{container.NotificationItem.PspReference} \n" +
                     $"status::{container.NotificationItem.EventCode}"
@@ -43,14 +44,14 @@ namespace adyen_dotnet_online_payments.Controllers
 
                     }
                     else
-                    {
+                    {*/
                         _logger.LogError($"Received webhook with event::\n" +
                    $"Merchant Reference ::{container.NotificationItem.MerchantReference} \n" +
                    $"PSP Reference ::{container.NotificationItem.PspReference} \n" +
                    $"status::{container.NotificationItem.EventCode}"+
                $"HMAC key sent:{container.NotificationItem.AdditionalData["hmacSignature"]}"+$"Error while validating HMAC Key");
 
-                    }
+                   // }
                 }
                 catch (Exception e)
                 {
