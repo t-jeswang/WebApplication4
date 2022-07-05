@@ -35,7 +35,7 @@ namespace adyen_dotnet_online_payments.Controllers
                 {
                 if (hmacValidator.IsValidHmac(container.NotificationItem, _hmac_key))
                 {
-                _logger.LogInformation($"Received webhook with event::\n" +
+                _logger.LogError($"Received webhook with event::\n" +
                     $"Merchant Reference ::{container.NotificationItem.MerchantReference} \n" +
                     $"PSP Reference ::{container.NotificationItem.PspReference} \n" +
                     $"status::{container.NotificationItem.EventCode}"
