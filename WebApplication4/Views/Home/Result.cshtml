@@ -4,18 +4,20 @@
 
 <div class="status-container">
     <div class="status">
+        <p id="status"> @ViewBag.status </p>
         @if (ViewBag.Status != "failed" || ViewBag.Status != "error")
         {
-        <p>Thank you!</p>
+            <p>Thank you!</p>
         }
         <p class="status-message">@ViewBag.Msg</p>
         @if (ViewBag.Status == "error")
         {
-        <p class="status-message">
-            Please review response in console and refer to
-            <a href="https://docs.adyen.com/development-resources/response-handling">Response handling.</a>
-        </p>
+            <p class="status-message">
+                Please review response in console and refer to
+                <a href="https://docs.adyen.com/development-resources/response-handling">Response handling.</a>
+            </p>
         }
         <a class="button" href="/" to="#/">Return Home</a>
     </div>
 </div>
+<script src="~/js/all.js" asp-append-version="true"></script> 
