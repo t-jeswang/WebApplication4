@@ -1,4 +1,5 @@
 ﻿var x = document.getElementById("status");
-x.addEventListener("beforeprint", function () {
+x.addEventListener("load", function () {
+    console.log('sent the message!')
     top.postMessage(document.getElementById('status'));
 });
