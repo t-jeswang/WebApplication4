@@ -2,5 +2,5 @@
 
 window.addEventListener("load", function () {
     console.log('sent the message!');
-    window.parent.postMessage(x.innerText);
+    window.parent.postMessage(x.innerText, '*');
 });
