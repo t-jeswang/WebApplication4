@@ -42,6 +42,12 @@ async function startCheckout() {
                 break;
         }
         */
+        const applePayComponent = checkout.create("applepay");
+        applePayComponent
+            .isAvailable()
+            .then(() => {
+                applePayComponent.mount(document.getElementById("payment"));
+            });
         const config = {
 
             configuration: { gatewayMerchantId: "Microsoft519_000001_TEST" },
@@ -54,12 +60,7 @@ async function startCheckout() {
                 googlePayComponent.mount(document.getElementById("payment"));
             });
            
-        const applePayComponent = checkout.create("applepay");
-        applePayComponent
-            .isAvailable()
-            .then(() => {
-                applePayComponent.mount(document.getElementById("payment"));
-            });
+
 
     } catch (error) {
         console.error(error);
