@@ -17,6 +17,7 @@ async function startCheckout() {
         const checkout = await createAdyenCheckout(checkoutSessionResponse);
         console.log(checkout.paymentMethodsResponse);
         console.log(type);
+        /*
         switch (type) {
             case "googlepay":
                 const config = {
@@ -40,7 +41,25 @@ async function startCheckout() {
                     });
                 break;
         }
+        */
+        const config = {
 
+            configuration: { gatewayMerchantId: "Microsoft519_000001_TEST" },
+        }
+        const googlePayComponent = checkout.create(type, config);
+
+        googlePayComponent
+            .isAvailable()
+            .then(() => {
+                googlePayComponent.mount(document.getElementById("payment"));
+            });
+           
+        const applePayComponent = checkout.create(type);
+        applePayComponent
+            .isAvailable()
+            .then(() => {
+                applePayComponent.mount(document.getElementById("payment"));
+            });
 
     } catch (error) {
         console.error(error);
