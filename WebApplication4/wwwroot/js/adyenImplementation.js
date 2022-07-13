@@ -46,7 +46,7 @@ async function startCheckout() {
 
             configuration: { gatewayMerchantId: "Microsoft519_000001_TEST" },
         }
-        const googlePayComponent = checkout.create(type, config);
+        const googlePayComponent = checkout.create("googlepay", config);
 
         googlePayComponent
             .isAvailable()
@@ -54,7 +54,7 @@ async function startCheckout() {
                 googlePayComponent.mount(document.getElementById("payment"));
             });
            
-        const applePayComponent = checkout.create(type);
+        const applePayComponent = checkout.create("applepay");
         applePayComponent
             .isAvailable()
             .then(() => {
