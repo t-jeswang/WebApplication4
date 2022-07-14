@@ -38,7 +38,7 @@ namespace WebApplication4.Controllers
             var orderRef = System.Guid.NewGuid();
             sessionsRequest.reference = orderRef.ToString(); 
 
-            sessionsRequest.returnUrl = $"https://dotnet-googlepay.azurewebsites.net/Home/Redirect?orderRef={orderRef}";
+            sessionsRequest.returnUrl = $"https://googlepaypoc-demo.azurewebsites.net/redirect?orderRef={orderRef}";
            /*
             sessionsRequest.storePaymentMethod = true;
             sessionsRequest.shopperInteraction = CreateCheckoutSessionRequest.ShopperInteractionEnum.Ecommerce;
