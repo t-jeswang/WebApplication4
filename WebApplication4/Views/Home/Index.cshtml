@@ -3,32 +3,33 @@
 }
 
 
-    <h1 class="display-4">Google pay Demo</h1>
-    <ul class="integration-list">
+<h1 class="display-4">Google pay Demo</h1>
+<ul class="integration-list">
     <li class="integration-list-item">
-         <a asp-area="" asp-controller="Home" asp-action="Preview" asp-route-id="googlepay" class="integration-list-item-link">
-        <div class="title-container">
-          <p class="integration-list-item-title">Google Pay</p>
-        </div>
-      </a>
-      </li>
-       <li class="integration-list-item">
-      <a asp-area="" asp-controller="Home" asp-action="Preview" asp-route-id="card" class="integration-list-item-link">
-        <div class="title-container">
-          <p class="integration-list-item-title">Card</p>
-        </div>
-      </a>
-       <li class="integration-list-item" id = "applepay-container">
-    <a asp-area="" asp-controller="Home" asp-action="Preview" asp-route-id="applepay" class="integration-list-item-link">
-        <div class="title-container">
-          <p class="integration-list-item-title">Apple Pay</p>
-        </div>
-      </a>
+        <a asp-area="" asp-controller="Home" asp-action="Preview" asp-route-id="googlepay" class="integration-list-item-link">
+            <div class="title-container">
+                <p class="integration-list-item-title">Google Pay</p>
+            </div>
+        </a>
     </li>
-      </ul>
-          <script>
-        if (!window.ApplePaySession) {
-            document.getElementById("applepay-container").style.display = "none";
-        }
+    <li class="integration-list-item">
+        <a asp-area="" asp-controller="Home" asp-action="Preview" asp-route-id="card" class="integration-list-item-link">
+            <div class="title-container">
+                <p class="integration-list-item-title">Card</p>
+            </div>
+        </a>
+    <li class="integration-list-item" id="applepay-container">
+        <a asp-area="" asp-controller="Home" asp-action="Preview" asp-route-id="applepay" class="integration-list-item-link">
+            <div class="title-container">
+                <p class="integration-list-item-title">Apple Pay</p>
+            </div>
+        </a>
+    </li>
+</ul>
+<br>
+<script>
+    if (!window.ApplePaySession) {
+        document.getElementById("applepay-container").style.display = "none";
+    }
 
-    </script>
+</script>

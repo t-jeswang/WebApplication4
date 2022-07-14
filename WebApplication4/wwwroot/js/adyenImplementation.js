@@ -40,26 +40,28 @@ async function startCheckout() {
                         applePayComponent.mount(document.getElementById("payment"));
                     });
                 break;
-        }
-        */
-        const applePayComponent = checkout.create("applepay");
-        applePayComponent
-            .isAvailable()
-            .then(() => {
-                applePayComponent.mount(document.getElementById("payment"));
-            });
+        }*/
+
+        const checkout1 = await createAdyenCheckout(checkoutSessionResponse);
         const config = {
 
             configuration: { gatewayMerchantId: "Microsoft519_000001_TEST" },
         }
-        const googlePayComponent = checkout.create("googlepay", config);
+        const googlePayComponent = checkout1.create(type, config);
 
         googlePayComponent
             .isAvailable()
             .then(() => {
                 googlePayComponent.mount(document.getElementById("payment"));
             });
-           
+
+        const checkout2 = await createAdyenCheckout(checkoutSessionResponse);
+        const applePayComponent = checkout2.create(type);
+        applePayComponent
+            .isAvailable()
+            .then(() => {
+                applePayComponent.mount(document.getElementById("payment"));
+            });
 
 
     } catch (error) {
