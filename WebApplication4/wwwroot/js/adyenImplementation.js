@@ -47,7 +47,7 @@ async function startCheckout() {
 
             configuration: { gatewayMerchantId: "Microsoft519_000001_TEST" },
         }
-        const googlePayComponent = checkout1.create(type, config);
+        const googlePayComponent = checkout1.create("googlepay", config);
 
         googlePayComponent
             .isAvailable()
@@ -56,7 +56,7 @@ async function startCheckout() {
             });
 
         const checkout2 = await createAdyenCheckout(checkoutSessionResponse);
-        const applePayComponent = checkout2.create(type);
+        const applePayComponent = checkout2.create("applepay");
         applePayComponent
             .isAvailable()
             .then(() => {
