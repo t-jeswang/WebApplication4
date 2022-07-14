@@ -52,7 +52,7 @@ async function startCheckout() {
         googlePayComponent
             .isAvailable()
             .then(() => {
-                googlePayComponent.mount(document.getElementById("payment"));
+                googlePayComponent.mount(document.getElementById("payment1"));
             });
 
         const checkout2 = await createAdyenCheckout(checkoutSessionResponse);
@@ -60,7 +60,7 @@ async function startCheckout() {
         applePayComponent
             .isAvailable()
             .then(() => {
-                applePayComponent.mount(document.getElementById("payment"));
+                applePayComponent.mount(document.getElementById("payment2"));
             });
 
 
