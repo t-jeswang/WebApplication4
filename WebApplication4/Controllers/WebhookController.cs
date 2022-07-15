@@ -68,14 +68,14 @@ namespace adyen_dotnet_online_payments.Controllers
 
         }
         [HttpPost("api/webhooks/paymentmethod/notifications")]
-        public ActionResult<string> PaymentmethodWebhooks([FromBody] string notificationRequest)
+        public ActionResult<string> PaymentmethodWebhooks([FromBody] JsonElement notificationRequest)
         {
 
             
 
-            _logger.LogInformation($"Webhook received::\n{notificationRequest}\n");
+           
 
-            _logger.LogError( notificationRequest
+            _logger.LogError( notificationRequest.ToString()
             );
 
 
