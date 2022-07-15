@@ -24,7 +24,10 @@ namespace WebApplication4.Controllers
         {
             return View();
         }
-
+        public IActionResult Stripe()
+        {
+            return View();
+        }
         public IActionResult Preview(string id)
         {
            ViewBag.PaymentMethod = id;
