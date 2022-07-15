@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Adyen.Model.Notification;
 using Adyen.Util;
-using System.Text.Json.Serialization;
-using System.Text.Json;
 using WebApplication4.Models;
+using Newtonsoft.Json;
 
 namespace adyen_dotnet_online_payments.Controllers
 {
@@ -67,16 +66,35 @@ namespace adyen_dotnet_online_payments.Controllers
 
 
         }
-        [HttpPost("api/webhooks/paymentmethod/notifications")]
-        public ActionResult<string> PaymentmethodWebhooks([FromBody] JsonElement notificationRequest)
+        public class NotificationMethodRequest
         {
-
             
 
-           
+            public string Type { get; set; }
+            public string Environment { get; set; }
 
-            _logger.LogError( notificationRequest.ToString()
-            );
+            [JsonProperty("Data")]
+            public NotificationMethodData Data { get; set; }
+
+        }
+        public class NotificationMethodData
+        {
+            public string PspReference { get; set; }
+            public string Type { get; set; }
+            public string MerchantId { get; set; }
+            public string Result { get; set; }
+            public string StoreId { get; set; }
+            public string Id { get; set; }
+        }
+        [HttpPost("api/webhooks/paymentmethod/notifications")]
+        public ActionResult<string> PaymentmethodWebhooks([FromBody] NotificationMethodRequest notificationRequest)
+        {
+
+            _logger.LogError($"Method Used::\n" +
+                   $"Merchant Reference ::{notificationRequest.Data.MerchantId} \n" +
+                   $"PSP Reference ::{notificationRequest.Data.PspReference} \n" +
+                   $"type::{notificationRequest.Data.Type}"
+               );
 
 
             return "[accepted]";
