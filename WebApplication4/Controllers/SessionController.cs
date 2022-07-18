@@ -9,12 +9,13 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Controllers
 {
-    public class HomeController : Controller
+    public class SessionController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<SessionController> _logger;
         private readonly string _client_key;
+        private readonly SessionModel _MySession;
 
-        public HomeController(ILogger<HomeController> logger)
+        public SessionController(ILogger<SessionController> logger)
         {
             _logger = logger;
             _client_key = "test_DT7EVPYLGNDHXI3QUMU63DAQNYIO45DI";
@@ -22,43 +23,21 @@ namespace WebApplication4.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-        public IActionResult Stripe()
-        {
-            return View();
-        }
-        public IActionResult Preview(string id)
-        {
-           ViewBag.PaymentMethod = id;
+            ViewBag.ClientKey = _client_key;
+//            ViewBag.amount = 10;
+//            ViewBag.currency = "USD";
             return View();
         }
 
-        public IActionResult Checkout(string id)
+        [HttpGet("session/{id}")]
+        public IActionResult CreateButtonBySessionId(SessionModel S)
         {
-            ViewBag.PaymentMethod = id;
+            ViewBag.SessionId = S;
             ViewBag.ClientKey = _client_key;
-            ViewBag.amount = 10;
-            ViewBag.currency = "USD";
-
             return View();
         }
 
-        public IActionResult Redirect()
-        {
-            ViewBag.ClientKey = _client_key;
-            return View();
-        }
-        public IActionResult Subscription(string id)
-        {
-            ViewBag.ClientKey = _client_key;
-            ViewBag.PaymentMethod = id;
-            ViewBag.amount = 10;
-            ViewBag.currency = "USD";
-            return View();
-        }
-       
-        [HttpGet("Home/Result/{status}")]
+        [HttpGet("Session/Result/{status}")]
         public IActionResult Result(string status, [FromQuery(Name = "reason")] string refusalReason)
         {
             string msg;

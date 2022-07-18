@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Payment button";
+}
+
+
+<div class="session">
+    <p> here success!</p>
+    <p> @ViewBag.SessionId.Channel </p>
+    <p> @ViewBag.SessionId.CountryCode </p>
+    <p> @ViewBag.SessionId.ExpiresAt </p>
+    <p> @ViewBag.SessionId.Id </p>
+    <p> @ViewBag.SessionId.MerchantAccount </p>
+    <p> @ViewBag.SessionId.Reference </p>
+    <p> @ViewBag.SessionId.SessionData </p>
+
+</div>
+
+
+<div id="clientKey" class="hidden">@ViewBag.ClientKey</div>
+<div id="channel" class="hidden">@ViewBag.SessionId.Channel</div>
+<div id="countryCode" class="hidden" @ViewBag.SessionId.CountryCode</div>
+<div id="expiresAt" class="hidden"> @ViewBag.SessionId.ExpiresAt</div>
+<div id="id" class="hidden">@ViewBag.SessionId.Id</div>
+<div id="merchantAccount" class="hidden">@ViewBag.SessionId.MerchantAccount</div>
+<div id="reference" class="hidden">@ViewBag.SessionId.Reference</div>
+<div id="sessionData" class="hidden">@ViewBag.SessionId.SessionData</div>
+<div id="payment-page">
+    <div class="container">
+        @* The Checkout integration type will be conditionally rendered below. *@
+        @* Drop-in includes styling out-of-the-box, so no additional CSS classes are needed. *@
+        <div class="payment-container">
+            <div id="payment1" class="payment"></div>
+            <div id="payment2" class="payment"></div>
+        </div>
+    </div>
+</div>
+
+@* Adyen Component client code *@
+<script src="~/js/adyenCreateButton.js" asp-append-version="true"></script>
+<script src="https://pay.google.com/gp/p/js/pay.js"></script>
+<script src="~/js/all.js" asp-append-version="true"></script>

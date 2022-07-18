@@ -1,0 +1,17 @@
+﻿{
+    ViewData["Title"] = "CreateSessionPage (should not be called)";
+}
+
+<div id="clientKey" class="hidden">@ViewBag.ClientKey</div>
+
+<div class="session">
+    <div>
+        The session you created:
+    </div>
+    <a asp-area="" asp-controller="Home" asp-action="CreateButtonBySessionId">
+        <p class="button">Create Pay Button</p>
+    </a>
+
+</div>
+
+<script src="~/js/adyenCreateSession.js" asp-append-version="true"></script>
