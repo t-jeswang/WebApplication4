@@ -29,7 +29,7 @@ namespace WebApplication4.Controllers
             return View();
         }
 
-        [HttpGet("session/{id}")]
+        [HttpGet("Session/{id}")]
         public IActionResult CreateButtonBySessionId(SessionModel S)
         {
             ViewBag.SessionId = S;
