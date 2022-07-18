@@ -4,7 +4,7 @@
 
 
 <div class="session">
-    <p> here success!</p>
+    
     <p> @ViewBag.SessionId.Channel </p>
     <p> @ViewBag.SessionId.CountryCode </p>
     <p> @ViewBag.SessionId.ExpiresAt </p>
@@ -24,6 +24,7 @@
 <div id="merchantAccount" class="hidden">@ViewBag.SessionId.MerchantAccount</div>
 <div id="reference" class="hidden">@ViewBag.SessionId.Reference</div>
 <div id="sessionData" class="hidden">@ViewBag.SessionId.SessionData</div>
+<div id="returnUrl" class="hidden">@ViewBag.SessionId.ReturnUrl</div>
 <div id="payment-page">
     <div class="container">
         @* The Checkout integration type will be conditionally rendered below. *@

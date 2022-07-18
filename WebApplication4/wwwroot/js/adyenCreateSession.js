@@ -13,9 +13,11 @@ async function startSession() {
         const checkoutSessionResponse = await callServer("/api/sessions");
         console.log('session complete');
         console.log(checkoutSessionResponse);
-        document.getElementById("SessionData").value = checkoutSessionResponse['sessionData'];
-        document.getElementById("Id").value = checkoutSessionResponse['Id'];
-        
+        var url = '/'+ checkoutSessionResponse['id'] + '?channel=' + checkoutSessionResponse['channel'] + '&countryCode=' + checkoutSessionResponse['countryCode'];
+        url = url + "&expiresAt=" + checkoutSessionResponse['expiresAt'] + '&merchantAccount=' + checkoutSessionResponse['merchantAccount'] + '&reference=' + checkoutSessionResponse['reference'];
+        url = url + "&sessionData=" + checkoutSessionResponse['sessionData'] + '&returnUrl=' + checkoutSessionResponse['returnUrl'] ;
+        var currentURL = window.location.href;
+        window.location.href = currentURL + url;
     } catch (error) {
         console.error(error);
         alert("Error occurred. Look at console for details");
@@ -36,5 +38,3 @@ async function callServer(url, data) {
 
   return await res.json();
 }
-
-if (!sessionId) { startSession() } 
