@@ -1,5 +1,5 @@
 const clientKey = document.getElementById("clientKey").innerHTML;
-
+var complete = document.getElementById("complete").value;
 
 
 // Typical checkout experience
@@ -44,7 +44,7 @@ async function startCheckout() {
                 applePayComponent.mount(document.getElementById("payment2"));
             });
 
-
+        complete = "true";
     } catch (error) {
         console.error(error);
         alert("Error occurred. Look at console for details");
@@ -103,4 +103,4 @@ function handleServerResponse(res, _component) {
     }
 }
 
-{ startCheckout() } 
+if (complete == "false") { startCheckout() } else { finalizeCheckout() }
