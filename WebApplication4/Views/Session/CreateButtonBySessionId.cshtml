@@ -3,22 +3,12 @@
 }
 
 
-<div class="session">
-    
-    <p> @ViewBag.SessionId.Channel </p>
-    <p> @ViewBag.SessionId.CountryCode </p>
-    <p> @ViewBag.SessionId.ExpiresAt </p>
-    <p> @ViewBag.SessionId.Id </p>
-    <p> @ViewBag.SessionId.MerchantAccount </p>
-    <p> @ViewBag.SessionId.Reference </p>
-    <p> @ViewBag.SessionId.SessionData </p>
 
-</div>
 
 
 <div id="clientKey" class="hidden">@ViewBag.ClientKey</div>
 <div id="channel" class="hidden">@ViewBag.SessionId.Channel</div>
-<div id="countryCode" class="hidden" @ViewBag.SessionId.CountryCode</div>
+<div id="countryCode" class="hidden"> @ViewBag.SessionId.CountryCode</div>
 <div id="expiresAt" class="hidden"> @ViewBag.SessionId.ExpiresAt</div>
 <div id="id" class="hidden">@ViewBag.SessionId.Id</div>
 <div id="merchantAccount" class="hidden">@ViewBag.SessionId.MerchantAccount</div>
