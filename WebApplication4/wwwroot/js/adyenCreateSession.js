@@ -13,9 +13,10 @@ async function startSession() {
         const checkoutSessionResponse = await callServer("/api/sessions");
         console.log('session complete');
         console.log(checkoutSessionResponse);
-        var url = '/'+ checkoutSessionResponse['id'] + '?channel=' + checkoutSessionResponse['channel'] + '&countryCode=' + checkoutSessionResponse['countryCode'];
-        url = url + "&expiresAt=" + checkoutSessionResponse['expiresAt'] + '&merchantAccount=' + checkoutSessionResponse['merchantAccount'] + '&reference=' + checkoutSessionResponse['reference'];
-        url = url + "&sessionData=" + checkoutSessionResponse['sessionData'] + '&returnUrl=' + checkoutSessionResponse['returnUrl'] ;
+        //var url = '/'+ checkoutSessionResponse['id'] + '?channel=' + checkoutSessionResponse['channel'] + '&countryCode=' + checkoutSessionResponse['countryCode'];
+        //url = url + "&expiresAt=" + checkoutSessionResponse['expiresAt'] + '&merchantAccount=' + checkoutSessionResponse['merchantAccount'] + '&reference=' + checkoutSessionResponse['reference'];
+        //url = url + "&sessionData=" + checkoutSessionResponse['sessionData'] + '&returnUrl=' + checkoutSessionResponse['returnUrl'] ;
+        var url = '/' + checkoutSessionResponse['id'] + '?sessionData=' + checkoutSessionResponse['sessionData'];
         var currentURL = window.location.href;
         window.location.href = currentURL + url;
     } catch (error) {
