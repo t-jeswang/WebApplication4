@@ -16,14 +16,14 @@ async function startCheckout() {
         
         const checkoutSessionResponse = {
             "amount": amount,
-            //"channel": document.getElementById("channel").innerHTML,
+            "channel": document.getElementById("channel").innerHTML,
             "countryCode": document.getElementById("countryCode").innerHTML,
-            //"expiresAt": document.getElementById("expiresAt").innerHTML,
+            "expiresAt": document.getElementById("expiresAt").innerHTML,
             "id": document.getElementById("id").innerHTML,
             "merchantAccount": document.getElementById("merchantAccount").innerHTML,
             "reference": document.getElementById("reference").innerHTML,
             "returnUrl": document.getElementById("returnUrl").innerHTML,
-            //"sessionData": document.getElementById("sessionData").innerHTML,
+            "sessionData": document.getElementById("sessionData").innerHTML,
         }
         //const checkoutSessionResponse = { "id": document.getElementById("id").innerHTML };
         const checkout1 = await createAdyenCheckout(checkoutSessionResponse);
@@ -91,17 +91,17 @@ async function createAdyenCheckout(session){
 function handleServerResponse(res, _component) {
     switch (res.resultCode) {
         case "Authorised":
-            window.location.href = "/Session/result/success";
+            window.location.href = "/Home/result/success";
             break;
         case "Pending":
         case "Received":
-            window.location.href = "/Session/result/pending";
+            window.location.href = "/Home/result/pending";
             break;
         case "Refused":
-            window.location.href = "/Session/result/failed";
+            window.location.href = "/Home/result/failed";
             break;
         default:
-            window.location.href = "/Session/result/error";
+            window.location.href = "/Home/result/error";
             break;
     }
 }
