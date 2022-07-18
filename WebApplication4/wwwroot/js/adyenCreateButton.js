@@ -1,5 +1,8 @@
 const clientKey = document.getElementById("clientKey").innerHTML;
-var complete = document.getElementById("complete").value;
+const urlParams = new URLSearchParams(window.location.search);
+const sessionId = urlParams.get('sessionId'); // Unique identifier for the payment session
+const redirectResult = urlParams.get('redirectResult');
+
 
 
 // Typical checkout experience
@@ -14,12 +17,12 @@ async function startCheckout() {
         const checkoutSessionResponse = {
             "amount": amount,
             //"channel": document.getElementById("channel").innerHTML,
-            //"countryCode": document.getElementById("countryCode").innerHTML,
+            "countryCode": document.getElementById("countryCode").innerHTML,
             //"expiresAt": document.getElementById("expiresAt").innerHTML,
             "id": document.getElementById("id").innerHTML,
-            //"merchantAccount": document.getElementById("merchantAccount").innerHTML,
-            //"reference": document.getElementById("reference").innerHTML,
-            //"returnUrl": document.getElementById("returnUrl").innerHTML,
+            "merchantAccount": document.getElementById("merchantAccount").innerHTML,
+            "reference": document.getElementById("reference").innerHTML,
+            "returnUrl": document.getElementById("returnUrl").innerHTML,
             //"sessionData": document.getElementById("sessionData").innerHTML,
         }
         //const checkoutSessionResponse = { "id": document.getElementById("id").innerHTML };
@@ -103,4 +106,5 @@ function handleServerResponse(res, _component) {
     }
 }
 
-if (complete == "false") { startCheckout() } else { finalizeCheckout() }
+
+if (!sessionId) { startCheckout() } else { finalizeCheckout(); }
