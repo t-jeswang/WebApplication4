@@ -13,13 +13,13 @@ async function startCheckout() {
         
         const checkoutSessionResponse = {
             "amount": amount,
-            "channel": document.getElementById("channel").innerHTML,
+            //"channel": document.getElementById("channel").innerHTML,
             "countryCode": document.getElementById("countryCode").innerHTML,
-            "expiresAt": document.getElementById("expiresAt").innerHTML,
+            //"expiresAt": document.getElementById("expiresAt").innerHTML,
             "id": document.getElementById("id").innerHTML,
             "merchantAccount": document.getElementById("merchantAccount").innerHTML,
             "reference": document.getElementById("reference").innerHTML,
-            "returnUrl": document.getElementById("returnUrl").innerHTML,
+            //"returnUrl": document.getElementById("returnUrl").innerHTML,
             "sessionData": document.getElementById("sessionData").innerHTML,
         }
         //const checkoutSessionResponse = { "id": document.getElementById("id").innerHTML };
