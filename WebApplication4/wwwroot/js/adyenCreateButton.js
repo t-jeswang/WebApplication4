@@ -10,8 +10,8 @@ async function startCheckout() {
             "currency": "USD",
             "value":1000
         }
-        /*
-        checkoutSessionResponse = {
+        
+        const checkoutSessionResponse = {
             "amount": amount,
             "channel": document.getElementById("channel").innerHTML,
             "countryCode": document.getElementById("countryCode").innerHTML,
@@ -21,8 +21,8 @@ async function startCheckout() {
             "reference": document.getElementById("reference").innerHTML,
             "returnUrl": document.getElementById("returnUrl").innerHTML,
             "sessionData": document.getElementById("sessionData").innerHTML,
-        }*/
-        const checkoutSessionResponse = { "id": document.getElementById("id").innerHTML };
+        }
+        //const checkoutSessionResponse = { "id": document.getElementById("id").innerHTML };
         const checkout1 = await createAdyenCheckout(checkoutSessionResponse);
         const config = {
 
