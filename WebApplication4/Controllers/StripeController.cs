@@ -9,12 +9,12 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Controllers
 {
-    public class HomeController : Controller
+    public class StripeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<StripeController> _logger;
         private readonly string _client_key;
 
-        public HomeController(ILogger<HomeController> logger)
+        public StripeController(ILogger<StripeController> logger)
         {
             _logger = logger;
             _client_key = "test_DT7EVPYLGNDHXI3QUMU63DAQNYIO45DI";
@@ -24,11 +24,7 @@ namespace WebApplication4.Controllers
         {
             return View();
         }
-        public IActionResult Preview(string id)
-        {
-           ViewBag.PaymentMethod = id;
-            return View();
-        }
+       
 
         public IActionResult Checkout(string id)
         {
