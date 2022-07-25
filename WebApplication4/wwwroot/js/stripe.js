@@ -26,14 +26,7 @@ paymentRequest.canMakePayment().then(function (result) {
         console.log('here!');
     }
 });
-paymentRequest.canMakePayment().then(function(result) {
-  if (result) {
-    prButton.mount('#payment-request-button');
-  } else {
-    document.getElementById('payment-request-button').style.display = 'none';
-    }
-    paymentRequest.on('paymentmethod', async (e) => {
-        console.log(e);
-    })
-});
+paymentRequest.on('paymentmethod', async (e) => {
+    console.log(e);
+})
 
