@@ -17,12 +17,23 @@ var prButton = elements.create('paymentRequestButton', {
     paymentRequest: paymentRequest,
 });
 
-console.log('here');
 // Check the availability of the Payment Request API first.
 paymentRequest.canMakePayment().then(function (result) {
     if (result) {
         prButton.mount('#payment-request-button');
     } else {
         document.getElementById('payment-request-button').style.display = 'none';
+        console.log('here!');
     }
 });
+paymentRequest.canMakePayment().then(function(result) {
+  if (result) {
+    prButton.mount('#payment-request-button');
+  } else {
+    document.getElementById('payment-request-button').style.display = 'none';
+    }
+    paymentRequest.on('paymentmethod', async (e) => {
+        console.log(e);
+    })
+});
+
