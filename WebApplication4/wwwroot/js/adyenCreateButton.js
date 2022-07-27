@@ -36,7 +36,7 @@ async function startCheckout() {
         googlePayComponent
             .isAvailable()
             .then(() => {
-                googlePayComponent.mount(document.getElementById("payment1"));
+                googlePayComponent.mount(document.getElementById("googlePayButton"));
             });
 
         const checkout2 = await createAdyenCheckout(checkoutSessionResponse);
@@ -44,7 +44,7 @@ async function startCheckout() {
         applePayComponent
             .isAvailable()
             .then(() => {
-                applePayComponent.mount(document.getElementById("payment2"));
+                applePayComponent.mount(document.getElementById("applePayButton"));
             });
 
         complete = "true";
