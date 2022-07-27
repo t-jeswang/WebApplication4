@@ -91,17 +91,17 @@ async function createAdyenCheckout(session){
 function handleServerResponse(res, _component) {
     switch (res.resultCode) {
         case "Authorised":
-            window.location.href = "/Home/result/success";
+            window.location.href = "/Session/Result/success";
             break;
         case "Pending":
         case "Received":
-            window.location.href = "/Home/result/pending";
+            window.location.href = "/Session/Result/pending";
             break;
         case "Refused":
-            window.location.href = "/Home/result/failed";
+            window.location.href = "/Session/Result/failed";
             break;
         default:
-            window.location.href = "/Home/result/error";
+            window.location.href = "/Session/Result/error";
             break;
     }
 }
