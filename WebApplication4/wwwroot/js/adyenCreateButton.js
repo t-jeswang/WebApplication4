@@ -107,4 +107,4 @@ function handleServerResponse(res, _component) {
 }
 
 
-if (!sessionId) { startCheckout() } else { finalizeCheckout(); }
+startCheckout();
