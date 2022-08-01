@@ -25,6 +25,7 @@ async function startCheckout() {
             //"returnUrl": document.getElementById("returnUrl").innerHTML,
             "sessionData": document.getElementById("sessionData").innerHTML,
         }
+        console.log('session created here!')
         //const checkoutSessionResponse = { "id": document.getElementById("id").innerHTML };
         const checkout1 = await createAdyenCheckout(checkoutSessionResponse);
         const config = {
