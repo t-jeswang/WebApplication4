@@ -51,7 +51,8 @@ async function startCheckout() {
         complete = "true";
     } catch (error) {
         console.error(error);
-        alert("Error occurred. Look at console for details");
+        await delay(1000);
+        startCheckout();
     }
 }
 
