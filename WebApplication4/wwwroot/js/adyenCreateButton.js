@@ -51,11 +51,13 @@ async function startCheckout() {
         complete = "true";
     } catch (error) {
         console.error(error);
-        await delay(1000);
+        setTimeout(waitFunc, 3000);
         startCheckout();
     }
 }
-
+function waitFunc() {
+    console.log("wait!");
+}
 // Some payment methods use redirects. This is where we finalize the operation
 async function finalizeCheckout() {
   try {
