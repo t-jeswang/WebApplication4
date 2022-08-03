@@ -51,8 +51,8 @@ async function startCheckout() {
         complete = "true";
     } catch (error) {
         console.error(error);
-        setTimeout(waitFunc, 3000);
-        startCheckout();
+        setTimeout(startCheckout(), 3000);
+
     }
 }
 function waitFunc() {
