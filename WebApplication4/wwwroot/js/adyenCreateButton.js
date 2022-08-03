@@ -25,8 +25,9 @@ async function startCheckout() {
             //"returnUrl": document.getElementById("returnUrl").innerHTML,
             "sessionData": document.getElementById("sessionData").innerHTML,
         }
-        console.log('session created here!')
+        console.log('session response created here!')
         //const checkoutSessionResponse = { "id": document.getElementById("id").innerHTML };
+        await sleep(5);
         const checkout1 = await createAdyenCheckout(checkoutSessionResponse);
         const config = {
 
@@ -51,12 +52,11 @@ async function startCheckout() {
         complete = "true";
     } catch (error) {
         console.error(error);
-        setTimeout(startCheckout(), 3000);
-
+        startCheckout();
     }
 }
-function waitFunc() {
-    console.log("wait!");
+async function sleep(seconds) {
+    return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
 // Some payment methods use redirects. This is where we finalize the operation
 async function finalizeCheckout() {
